@@ -20,7 +20,7 @@ function renderButtons() {
         // Providing the initial button text
         a.text(animals[i]);
         // Adding the button to the buttons-view div
-        $("#animal-buttons").append(a);
+        $("#animal-buttons").append(a).append(" ");
     }
 }  
 
@@ -39,8 +39,8 @@ $("#add-animal").on("click", function(event) {
     renderButtons();
 });
 
- // Adding click event listen listener to all buttons
- $(document).on("click", ".animal-button", function(event) {
+ // Adding click event listen listener to all button
+ $(document).on("click", ".animal-button", function() {
     // Grabbing and storing the data-animal property value from the button
     var animal = $(this).attr("data-animal");
     console.log(animal);
