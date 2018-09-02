@@ -5,7 +5,7 @@ function renderButtons() {
 
     // Deleting the buttons prior to adding new movies
     // (this is necessary otherwise you will have repeat buttons)
-    $("#animalButtons").empty();
+    $("#animal-buttons").empty();
 
     // Looping through the array of movies
     for (var i = 0; i < animals.length; i++) {
@@ -20,7 +20,7 @@ function renderButtons() {
         // Providing the initial button text
         a.text(animals[i]);
         // Adding the button to the buttons-view div
-        $("#animalButtons").append(a);
+        $("#animal-buttons").append(a);
     }
 }  
 
@@ -40,9 +40,10 @@ $("#add-animal").on("click", function(event) {
 });
 
  // Adding click event listen listener to all buttons
- $(".animal-button").on("click", function() {
+ $(document).on("click", ".animal-button", function(event) {
     // Grabbing and storing the data-animal property value from the button
     var animal = $(this).attr("data-animal");
+    console.log(animal);
 
     // Constructing a queryURL using the animal name
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
@@ -56,8 +57,6 @@ $("#add-animal").on("click", function(event) {
       // After data comes back from the request
       .then(function(response) {
         console.log(queryURL);
-
-        console.log(response);
         // storing the data from the AJAX request in the results variable
         var results = response.data;
 
