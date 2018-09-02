@@ -78,7 +78,7 @@ $("#add-animal").on("click", function(event) {
           animalDiv.append(p);
           animalDiv.append(animalImage);
 
-          // Prependng the animalDiv to the HTML page in the "#gifs-appear-here" div
+          // Prependng the animalDiv to the HTML page in the "#animals" div
           $("#animals").prepend(animalDiv);
         }
       });
